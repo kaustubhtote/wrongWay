@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_overlay.gd" id="1_pause"]
+
+[node name="PauseOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pause")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0431373, 0.0941176, 0.86)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausePanel" type="PanelContainer" parent="Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(540, 440)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center/PausePanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Center/PausePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/PausePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.556863, 0.631373, 0.756863, 1)
+theme_override_font_sizes/font_size = 18
+text = "Timer and response window are frozen."
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Center/PausePanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="Center/PausePanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "RESTART"
+
+[node name="HowToPlayButton" type="Button" parent="Center/PausePanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="HomeButton" type="Button" parent="Center/PausePanel/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+text = "QUIT TO HOME"

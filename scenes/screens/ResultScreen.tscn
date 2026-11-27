@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/result_screen.gd" id="1_res"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+
+[node name="ResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_res")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SummaryCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/SummaryCard"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ModeLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CLASSIC RESULT"
+horizontal_alignment = 1
+
+[node name="RecordBadge" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "★ NEW PERSONAL BEST! ★"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 86
+text = "0"
+horizontal_alignment = 1
+
+[node name="BestLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "BEST SCORE: 0"
+horizontal_alignment = 1
+
+[node name="AccuracyLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "ACCURACY: 0.0%"
+horizontal_alignment = 1
+
+[node name="StreakLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "LONGEST STREAK: 0"
+horizontal_alignment = 1
+
+[node name="BreakdownLabel" type="Label" parent="SafeArea/VBox/SummaryCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Correct: 0   •   Wrong: 0   •   Timeout: 0"
+horizontal_alignment = 1
+
+[node name="ShareFeedbackLabel" type="Label" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = ""
+horizontal_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+text = "PLAY AGAIN"
+
+[node name="BottomRow" type="HBoxContainer" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ShareButton" type="Button" parent="SafeArea/VBox/BottomRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SHARE"
+
+[node name="HomeButton" type="Button" parent="SafeArea/VBox/BottomRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HOME"

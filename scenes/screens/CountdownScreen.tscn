@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/countdown_screen.gd" id="1_cd"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+
+[node name="CountdownScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cd")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="Center" type="CenterContainer" parent="SafeArea"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/Center"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ModeLabel" type="Label" parent="SafeArea/Center/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "CLASSIC"
+horizontal_alignment = 1
+
+[node name="CountCard" type="PanelContainer" parent="SafeArea/Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CountLabel" type="Label" parent="SafeArea/Center/VBox/CountCard"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 112
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TipLabel" type="Label" parent="SafeArea/Center/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "GET READY — TAP THE OPPOSITE!"
+horizontal_alignment = 1

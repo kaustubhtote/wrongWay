@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B18"/>
+      <stop offset="55%" stop-color="#111A2D"/>
+      <stop offset="100%" stop-color="#17243B"/>
+    </linearGradient>
+    <linearGradient id="cyanViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43D9FF"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="500" fill="url(#bg)"/>
+  <rect x="28" y="28" width="968" height="444" rx="34" fill="none" stroke="#43D9FF" stroke-opacity="0.32" stroke-width="4"/>
+  <!-- Left emblem card -->
+  <rect x="76" y="106" width="288" height="288" rx="56" fill="#070B18" stroke="#A78BFA" stroke-opacity="0.55" stroke-width="5"/>
+  <g transform="translate(220 250)">
+    <path d="M -78 -54 L 36 -54 L 36 -86 L 100 -34 L 36 18 L 36 -14 L -78 -14 Z" fill="#FF3D6E"/>
+    <path d="M 78 54 L -36 54 L -36 86 L -100 34 L -36 -18 L -36 14 L 78 14 Z" fill="url(#cyanViolet)"/>
+  </g>
+  <!-- Title & Tagline -->
+  <text x="416" y="218" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="bold" fill="#F3F7FF">WRONG WAY!</text>
+  <text x="418" y="282" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#43D9FF">SEE LEFT? TAP RIGHT!</text>
+  <text x="418" y="336" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#8EA1C1">Offline 2D Neon Arcade Reaction Game</text>
+  <!-- Mode pills -->
+  <rect x="418" y="366" width="160" height="44" rx="14" fill="#111A2D" stroke="#43D9FF" stroke-width="2"/>
+  <text x="498" y="395" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="#F3F7FF">CLASSIC</text>
+  <rect x="596" y="366" width="176" height="44" rx="14" fill="#111A2D" stroke="#A78BFA" stroke-width="2"/>
+  <text x="684" y="395" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="#F3F7FF">60s RUSH</text>
+</svg>

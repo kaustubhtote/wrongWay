@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/how_to_play_screen.gd" id="1_how"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+[ext_resource type="Script" path="res://scripts/ui/arrow_glyph.gd" id="3_arrow"]
+
+[node name="HowToPlayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_how")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "HOW TO PLAY"
+horizontal_alignment = 1
+
+[node name="ExampleCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/ExampleCard"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Lead" type="Label" parent="SafeArea/VBox/ExampleCard/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Always tap the OPPOSITE direction!"
+horizontal_alignment = 1
+
+[node name="Row1" type="HBoxContainer" parent="SafeArea/VBox/ExampleCard/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PromptArrow" type="Control" parent="SafeArea/VBox/ExampleCard/VBox/Row1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="Row1Text" type="Label" parent="SafeArea/VBox/ExampleCard/VBox/Row1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "PROMPT: LEFT  →  TAP: RIGHT"
+
+[node name="TapArrow" type="Control" parent="SafeArea/VBox/ExampleCard/VBox/Row1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="Row2" type="HBoxContainer" parent="SafeArea/VBox/ExampleCard/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="UpArrow" type="Control" parent="SafeArea/VBox/ExampleCard/VBox/Row2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="Row2Text" type="Label" parent="SafeArea/VBox/ExampleCard/VBox/Row2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "PROMPT: UP    →  TAP: DOWN"
+
+[node name="DownArrow" type="Control" parent="SafeArea/VBox/ExampleCard/VBox/Row2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="RulesCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RulesText" type="Label" parent="SafeArea/VBox/RulesCard"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.968627, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "• Beat the timer bar on every prompt before it expires.
+• Response time starts at 1.80s and gets faster as you score!
+• Classic: 3 lives. Wrong tap or timeout costs 1 life.
+• 60s Rush: 60 seconds total. Mistakes cost 1 point (never below 0).
+• Pausing or switching apps freezes your timer fairly."
+autowrap_mode = 3
+
+[node name="GotItButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 82)
+layout_mode = 2
+text = "GOT IT — LET'S GO!"

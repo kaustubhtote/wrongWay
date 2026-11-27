@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/best_scores_screen.gd" id="1_best"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+
+[node name="BestScoresScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_best")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "BEST SCORES"
+horizontal_alignment = 1
+
+[node name="BestsCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/BestsCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ClassicBestLabel" type="Label" parent="SafeArea/VBox/BestsCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "CLASSIC BEST: 0   (Best Streak: 0)"
+
+[node name="RushBestLabel" type="Label" parent="SafeArea/VBox/BestsCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "60s RUSH BEST: 0   (Best Streak: 0)"
+
+[node name="RecentCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/RecentCard"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RecentHeader" type="Label" parent="SafeArea/VBox/RecentCard/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "RECENT RUNS"
+
+[node name="EmptyLabel" type="Label" parent="SafeArea/VBox/RecentCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "No completed rounds yet. Play a round to record your best!"
+autowrap_mode = 3
+
+[node name="Scroll" type="ScrollContainer" parent="SafeArea/VBox/RecentCard/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RecentList" type="VBoxContainer" parent="SafeArea/VBox/RecentCard/VBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BackButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+text = "BACK"

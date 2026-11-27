@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/home_screen.gd" id="1_home"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+[ext_resource type="Script" path="res://scripts/ui/arrow_glyph.gd" id="3_arrow"]
+
+[node name="HomeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_home")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="HeroCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeroVBox" type="VBoxContainer" parent="SafeArea/VBox/HeroCard"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="IconRow" type="HBoxContainer" parent="SafeArea/VBox/HeroCard/HeroVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LeftArrow" type="Control" parent="SafeArea/VBox/HeroCard/HeroVBox/IconRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="RightArrow" type="Control" parent="SafeArea/VBox/HeroCard/HeroVBox/IconRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+script = ExtResource("3_arrow")
+
+[node name="TitleLabel" type="Label" parent="SafeArea/VBox/HeroCard/HeroVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "WRONG WAY!"
+horizontal_alignment = 1
+
+[node name="RuleLabel" type="Label" parent="SafeArea/VBox/HeroCard/HeroVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Prompt says LEFT? Tap RIGHT!
+Always choose the opposite direction."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BestSummaryLabel" type="Label" parent="SafeArea/VBox/HeroCard/HeroVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CLASSIC BEST: 0   |   60s RUSH BEST: 0"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+text = "PLAY"
+
+[node name="HowToPlayButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+text = "HOW TO PLAY"
+
+[node name="BottomRow" type="HBoxContainer" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BestScoresButton" type="Button" parent="SafeArea/VBox/BottomRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BEST SCORES"
+
+[node name="SettingsButton" type="Button" parent="SafeArea/VBox/BottomRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS"

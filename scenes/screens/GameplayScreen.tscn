@@ -1,0 +1,156 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/gameplay_screen.gd" id="1_gp"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+[ext_resource type="Script" path="res://scripts/ui/arrow_glyph.gd" id="3_arrow"]
+[ext_resource type="PackedScene" path="res://scenes/components/DirectionButton.tscn" id="4_dirbtn"]
+
+[node name="GameplayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gp")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="HudCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HudGrid" type="VBoxContainer" parent="SafeArea/VBox/HudCard"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopRow" type="HBoxContainer" parent="SafeArea/VBox/HudCard/HudGrid"]
+layout_mode = 2
+
+[node name="ModeLabel" type="Label" parent="SafeArea/VBox/HudCard/HudGrid/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "CLASSIC"
+
+[node name="StreakLabel" type="Label" parent="SafeArea/VBox/HudCard/HudGrid/TopRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "STREAK: 0"
+horizontal_alignment = 2
+
+[node name="BottomRow" type="HBoxContainer" parent="SafeArea/VBox/HudCard/HudGrid"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ScoreLabel" type="Label" parent="SafeArea/VBox/HudCard/HudGrid/BottomRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+
+[node name="StatusLabel" type="Label" parent="SafeArea/VBox/HudCard/HudGrid/BottomRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "LIVES: ♥ ♥ ♥"
+horizontal_alignment = 1
+
+[node name="PauseButton" type="Button" parent="SafeArea/VBox/HudCard/HudGrid/BottomRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 56)
+layout_mode = 2
+tooltip_text = "Pause game"
+text = "||"
+
+[node name="PromptSpacerTop" type="Control" parent="SafeArea/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PromptCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/PromptCard"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="PromptHintLabel" type="Label" parent="SafeArea/VBox/PromptCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "TAP THE OPPOSITE OF:"
+horizontal_alignment = 1
+
+[node name="PromptArrow" type="Control" parent="SafeArea/VBox/PromptCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(124, 124)
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_arrow")
+
+[node name="PromptWordLabel" type="Label" parent="SafeArea/VBox/PromptCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEFT"
+horizontal_alignment = 1
+
+[node name="WindowBar" type="ProgressBar" parent="SafeArea/VBox/PromptCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+max_value = 1.8
+value = 1.8
+show_percentage = false
+
+[node name="FeedbackLabel" type="Label" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = ""
+horizontal_alignment = 1
+
+[node name="PromptSpacerBottom" type="Control" parent="SafeArea/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonGrid" type="GridContainer" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="BtnUp" parent="SafeArea/VBox/ButtonGrid" instance=ExtResource("4_dirbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BtnDown" parent="SafeArea/VBox/ButtonGrid" instance=ExtResource("4_dirbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BtnLeft" parent="SafeArea/VBox/ButtonGrid" instance=ExtResource("4_dirbtn")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BtnRight" parent="SafeArea/VBox/ButtonGrid" instance=ExtResource("4_dirbtn")]
+unique_name_in_owner = true
+layout_mode = 2

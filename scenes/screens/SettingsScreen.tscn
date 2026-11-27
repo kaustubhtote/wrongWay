@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_screen.gd" id="1_set"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+
+[node name="SettingsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_set")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="SafeArea/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="SettingsCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/SettingsCard"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="SoundToggle" type="CheckButton" parent="SafeArea/VBox/SettingsCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Sound Effects"
+
+[node name="HapticsToggle" type="CheckButton" parent="SafeArea/VBox/SettingsCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Haptic Feedback"
+
+[node name="ReducedMotionToggle" type="CheckButton" parent="SafeArea/VBox/SettingsCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Reduced Motion"
+
+[node name="ReplayTutorialButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+text = "VIEW HOW TO PLAY"
+
+[node name="VersionLabel" type="Label" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "WRONG WAY! v1.0.0  •  100% Offline  •  No Ads"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+text = "BACK"

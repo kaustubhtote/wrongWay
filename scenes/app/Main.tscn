@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/app/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/app/screen_router.gd" id="2_router"]
+[ext_resource type="Script" path="res://scripts/game/game_controller.gd" id="3_ctrl"]
+[ext_resource type="Script" path="res://scripts/services/audio_service.gd" id="4_audio"]
+[ext_resource type="PackedScene" path="res://scenes/screens/SplashScreen.tscn" id="5_splash"]
+[ext_resource type="PackedScene" path="res://scenes/screens/HomeScreen.tscn" id="6_home"]
+[ext_resource type="PackedScene" path="res://scenes/screens/ModeSelectScreen.tscn" id="7_mode"]
+[ext_resource type="PackedScene" path="res://scenes/screens/HowToPlayScreen.tscn" id="8_how"]
+[ext_resource type="PackedScene" path="res://scenes/screens/CountdownScreen.tscn" id="9_cd"]
+[ext_resource type="PackedScene" path="res://scenes/screens/GameplayScreen.tscn" id="10_gp"]
+[ext_resource type="PackedScene" path="res://scenes/screens/ResultScreen.tscn" id="11_res"]
+[ext_resource type="PackedScene" path="res://scenes/screens/SettingsScreen.tscn" id="12_set"]
+[ext_resource type="PackedScene" path="res://scenes/screens/BestScoresScreen.tscn" id="13_best"]
+[ext_resource type="PackedScene" path="res://scenes/screens/PauseOverlay.tscn" id="14_pause"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.0431373, 0.0941176, 1)
+
+[node name="ScreenRouter" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_router")
+
+[node name="GameController" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_ctrl")
+
+[node name="AudioService" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_audio")
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SplashScreen" parent="Screens" instance=ExtResource("5_splash")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="HomeScreen" parent="Screens" instance=ExtResource("6_home")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ModeSelectScreen" parent="Screens" instance=ExtResource("7_mode")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="HowToPlayScreen" parent="Screens" instance=ExtResource("8_how")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="CountdownScreen" parent="Screens" instance=ExtResource("9_cd")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GameplayScreen" parent="Screens" instance=ExtResource("10_gp")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ResultScreen" parent="Screens" instance=ExtResource("11_res")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="SettingsScreen" parent="Screens" instance=ExtResource("12_set")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="BestScoresScreen" parent="Screens" instance=ExtResource("13_best")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="PauseOverlay" parent="." instance=ExtResource("14_pause")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

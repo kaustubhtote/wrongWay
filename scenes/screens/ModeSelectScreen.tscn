@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/mode_select_screen.gd" id="1_mode"]
+[ext_resource type="Script" path="res://scripts/ui/safe_area_margin.gd" id="2_safe"]
+
+[node name="ModeSelectScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mode")
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_safe")
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HeaderLabel" type="Label" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+text = "CHOOSE MODE"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Tap the OPPOSITE direction to score."
+horizontal_alignment = 1
+
+[node name="ClassicCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/ClassicCard"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ClassicTitle" type="Label" parent="SafeArea/VBox/ClassicCard/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CLASSIC"
+
+[node name="ClassicDesc" type="Label" parent="SafeArea/VBox/ClassicCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.556863, 0.631373, 0.756863, 1)
+theme_override_font_sizes/font_size = 20
+text = "Start with 3 lives.
++1 point per correct tap.
+Wrong tap or timeout costs 1 life.
+Survive as long as you can!"
+autowrap_mode = 3
+
+[node name="ClassicBestLabel" type="Label" parent="SafeArea/VBox/ClassicCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "BEST SCORE: 0"
+
+[node name="ClassicPlayButton" type="Button" parent="SafeArea/VBox/ClassicCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+text = "PLAY CLASSIC"
+
+[node name="RushCard" type="PanelContainer" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea/VBox/RushCard"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="RushTitle" type="Label" parent="SafeArea/VBox/RushCard/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "60s RUSH"
+
+[node name="RushDesc" type="Label" parent="SafeArea/VBox/RushCard/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.556863, 0.631373, 0.756863, 1)
+theme_override_font_sizes/font_size = 20
+text = "60-second arcade sprint.
++1 point per correct tap.
+Wrong tap or timeout subtracts 1 point (min 0).
+Score as high as possible before time runs out!"
+autowrap_mode = 3
+
+[node name="RushBestLabel" type="Label" parent="SafeArea/VBox/RushCard/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "BEST SCORE: 0"
+
+[node name="RushPlayButton" type="Button" parent="SafeArea/VBox/RushCard/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+text = "PLAY 60s RUSH"
+
+[node name="BackButton" type="Button" parent="SafeArea/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+text = "BACK"

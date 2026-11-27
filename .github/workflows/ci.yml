@@ -1,0 +1,47 @@
+name: Godot CI
+
+on:
+  push:
+    branches: [main, developer]
+  pull_request:
+    branches: [main, developer]
+
+env:
+  GODOT_VERSION: "4.7.2-stable"
+
+jobs:
+  validate-and-test:
+    name: Import & Headless QA (${{ env.GODOT_VERSION }})
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Godot ${{ env.GODOT_VERSION }} binary
+        id: cache-godot
+        uses: actions/cache@v4
+        with:
+          path: .godot-bin
+          key: godot-${{ runner.os }}-${{ env.GODOT_VERSION }}
+
+      - name: Download pinned Godot ${{ env.GODOT_VERSION }}
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p .godot-bin
+          curl -sSL "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d .godot-bin
+          chmod +x ".godot-bin/Godot_v${GODOT_VERSION}_linux.x86_64"
+          rm -f /tmp/godot.zip
+
+      - name: Verify Godot version
+        run: |
+          ".godot-bin/Godot_v${GODOT_VERSION}_linux.x86_64" --version
+
+      - name: Import & validate project resources
+        run: |
+          ".godot-bin/Godot_v${GODOT_VERSION}_linux.x86_64" --headless --path . --import --quit
+
+      - name: Run automated QA test suite
+        run: |
+          ".godot-bin/Godot_v${GODOT_VERSION}_linux.x86_64" --headless --path . --script res://tests/run_tests.gd
