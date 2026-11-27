@@ -6,8 +6,8 @@
 - **Package ID:** `io.github.kaustubhtote.wrongway`
 - **Initial Version:** `versionName = "1.0.0"`, `versionCode = 1`
 - **Versioning Plan:** Increment `versionCode` monotonically by +1 on every internal/closed/production upload (`1`, `2`, `3`, ...); follow SemVer (`1.0.1` patches, `1.1.0` feature updates).
-- **Support Email:** `[SUPPORT_EMAIL_PLACEHOLDER]` *(Publisher must provide a monitored support email before submission.)*
-- **Privacy Policy URL:** `[PRIVACY_POLICY_URL_PLACEHOLDER]` *(Host `docs/privacy-policy.md` at a public HTTPS URL before Play Console review.)*
+- **Support Email:** `planbeta007@gmail.com` *(Publisher must provide a monitored support email before submission.)*
+- **Privacy Policy URL:** `https://kaustubhtote.github.io/wrongWay/privacy-policy` *(Host `docs/privacy-policy.md` at a public HTTPS URL before Play Console review.)*
 
 ---
 

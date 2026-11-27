@@ -1,8 +1,8 @@
 # Privacy Policy — WRONG WAY!
 
-**Effective Date:** `[EFFECTIVE_DATE_PLACEHOLDER]`  
-**Developer / Publisher:** `[PUBLISHER_NAME_PLACEHOLDER]`  
-**Contact Email:** `[SUPPORT_EMAIL_PLACEHOLDER]`
+**Effective Date:** `2026-11-27]`  
+**Developer / Publisher:** `thePowerNaps`  
+**Contact Email:** `planbeta007@gmail.com`
 
 ## Overview
 
